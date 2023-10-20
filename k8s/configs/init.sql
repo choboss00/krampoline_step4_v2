@@ -6,11 +6,17 @@ FLUSH PRIVILEGES;
 
 USE `krampoline`;
 
-DROP TABLE IF EXISTS `sample_data`;
-CREATE TABLE `sample_data` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `detail` varchar(100) NOT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `interest_tb`;
+CREATE TABLE `interest_tb` (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    category VARCHAR(50)
+);
 
-INSERT INTO sample_data (`id`,`detail`) VALUES ('1', 'Hello DKOS!');
+INSERT INTO `interest_tb` (created_at, category) VALUES
+  (NOW(), 'IDOL'),
+  (NOW(), 'Game'),
+  (NOW(), 'K-POP'),
+  (NOW(), 'Sports'),
+  (NOW(), 'Movie'),
+  (NOW(), 'Drama');
