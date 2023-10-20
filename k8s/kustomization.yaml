@@ -3,7 +3,7 @@ resources:
   - nginx.yaml
   - mariadb.yaml
   - backend.yaml
-  - frontend.yaml
+#  - frontend.yaml
 configMapGenerator:
   - name: nginx
     files:
