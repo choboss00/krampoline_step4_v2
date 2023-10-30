@@ -6,14 +6,18 @@ FLUSH PRIVILEGES;
 
 USE `krampoline`;
 
-DROP TABLE IF EXISTS `interest_tb`;
-CREATE TABLE `interest_tb` (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    category VARCHAR(50)
+DROP TABLE IF EXISTS `interests`;
+CREATE TABLE interests (
+   id int auto_increment,
+   created_at timestamp not null,
+   deleted_at timestamp,
+   is_deleted boolean default false not null,
+   updated_at timestamp,
+   category varchar(255),
+   primary key (id)
 );
 
-INSERT INTO `interest_tb` (created_at, category) VALUES
+INSERT INTO `interests` (created_at, category) VALUES
   (NOW(), 'IDOL'),
   (NOW(), 'Game'),
   (NOW(), 'K-POP'),
