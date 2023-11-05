@@ -135,6 +135,25 @@ CREATE TABLE subtitles (
                            FOREIGN KEY (video_id) REFERENCES videos(id)
 );
 
+CREATE TABLE refresh_tokens (
+    id INT NOT NULL AUTO_INCREMENT,
+    refresh_token VARCHAR(500),
+    user_id INT,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE video_histories (
+    id INT NOT NULL AUTO_INCREMENT,
+    created_at TIMESTAMP NOT NULL,
+    deleted_at TIMESTAMP,
+    is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+    updated_at TIMESTAMP,
+    user_id INT,
+    video_id INT,
+    PRIMARY KEY (id)
+);
+
+
 INSERT INTO `interests` (created_at, category) VALUES
                                                    (NOW(), 'IDOL'),
                                                    (NOW(), 'Game'),
