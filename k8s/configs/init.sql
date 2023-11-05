@@ -142,3 +142,23 @@ INSERT INTO `interests` (created_at, category) VALUES
                                                    (NOW(), 'Sports'),
                                                    (NOW(), 'Movie'),
                                                    (NOW(), 'Drama');
+
+INSERT INTO users (created_at, first_name, last_name, email, password, country, introduction, age, profile_image, role, phone) VALUES
+   (NOW(), 'John', 'Doe', 'john@example.com', '{bcrypt}$2a$10$8H0OT8wgtALJkig6fmypi.Y7jzI5Y7W9PGgRKqnVeS2cLWGifwHF2', 'USA', 'Hello, I am John.', 25, 'profile.jpg', 'MENTOR', '010-0000-0000'),
+   (NOW(), 'Alice', 'Smith', 'alice@example.com', '{bcrypt}$2a$10$8H0OT8wgtALJkig6fmypi.Y7jzI5Y7W9PGgRKqnVeS2cLWGifwHF2', 'Canada', 'I love painting.', 25, 'image2.jpg', 'MENTOR', '010-0000-0000');
+
+INSERT INTO mentor_posts (created_at, writer_id, title, content, state) VALUES
+      (NOW(), 1, 'Teaching Programming', 'I can teach you how to code.', 'ACTIVE'),
+      (NOW(), 1, 'Art Workshop', 'Let''s create beautiful art together.', 'ACTIVE'),
+      (NOW(), 2, 'Software Development Mentorship', 'I can mentor you in software development.', 'ACTIVE'),
+      (NOW(), 2, 'Art and Painting Mentorship', 'Learn the art of painting with me.', 'ACTIVE'),
+      (NOW(), 1, 'Web Development Mentorship', 'I can teach you web development from scratch.', 'ACTIVE'),
+      (NOW(), 2, 'Fitness and Health Mentorship', 'Get in shape and stay healthy with my guidance.', 'ACTIVE'),
+      (NOW(), 1, 'Data Science Mentorship', 'Learn data science and machine learning with me.', 'ACTIVE'),
+      (NOW(), 2, 'Music Production Mentorship', 'Produce your own music with professional tips.', 'ACTIVE'),
+      (NOW(), 2, 'Cooking and Culinary Arts Mentorship', 'Master the art of cooking and culinary skills.', 'ACTIVE'),
+      (NOW(), 2, 'Entrepreneurship Mentorship', 'Start and grow your own business.', 'ACTIVE'),
+      (NOW(), 1, 'Graphic Design Mentorship', 'Create stunning graphics and designs.', 'ACTIVE'),
+      (NOW(), 1, 'Yoga and Mindfulness Mentorship', 'Find inner peace and balance through yoga.', 'ACTIVE'),
+      (NOW(), 1, 'Photography Mentorship', 'Capture amazing moments with your camera.', 'ACTIVE'),
+      (NOW(), 2, 'Mathematics Tutoring', 'I can help you understand and excel in math.', 'ACTIVE');
