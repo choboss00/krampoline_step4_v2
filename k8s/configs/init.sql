@@ -20,10 +20,10 @@ SET foreign_key_checks = 1;    # 외래키 체크 설정
 
 CREATE TABLE users (
                        id INT AUTO_INCREMENT PRIMARY KEY,
-                       created_at TIMESTAMP NOT NULL,
-                       deleted_at TIMESTAMP,
-                       is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                       updated_at TIMESTAMP,
+                       created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
+                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
                        age INT NOT NULL,
                        country VARCHAR(255) NOT NULL,
                        email VARCHAR(100) NOT NULL UNIQUE,
@@ -38,19 +38,19 @@ CREATE TABLE users (
 
 CREATE TABLE interests (
                            id INT AUTO_INCREMENT PRIMARY KEY,
-                           created_at TIMESTAMP NOT NULL,
-                           deleted_at TIMESTAMP,
-                           is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                           updated_at TIMESTAMP,
+                           created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
+                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
                            category VARCHAR(255)
 );
 
 CREATE TABLE videos (
                         id INT AUTO_INCREMENT PRIMARY KEY,
-                        created_at TIMESTAMP NOT NULL,
-                        deleted_at TIMESTAMP,
+                        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
                         is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                        updated_at TIMESTAMP,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
                         video_end_time VARCHAR(255),
                         video_info VARCHAR(255),
                         video_start_time VARCHAR(255),
@@ -59,10 +59,10 @@ CREATE TABLE videos (
 
 CREATE TABLE mentor_posts (
                               id INT AUTO_INCREMENT PRIMARY KEY,
-                              created_at TIMESTAMP NOT NULL,
-                              deleted_at TIMESTAMP,
-                              is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                              updated_at TIMESTAMP,
+                              created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
+                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
                               content VARCHAR(300),
                               state VARCHAR(255) NOT NULL,
                               title VARCHAR(255) NOT NULL,
@@ -72,10 +72,10 @@ CREATE TABLE mentor_posts (
 
 CREATE TABLE connected_users (
                                  id INT AUTO_INCREMENT PRIMARY KEY,
-                                 created_at TIMESTAMP NOT NULL,
-                                 deleted_at TIMESTAMP,
-                                 is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                                 updated_at TIMESTAMP,
+                                 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
+                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
                                  mentee_user_id INT,
                                  mentor_post_id INT,
                                  FOREIGN KEY (mentee_user_id) REFERENCES users(id),
@@ -84,10 +84,10 @@ CREATE TABLE connected_users (
 
 CREATE TABLE not_connected_register_users (
                                               id INT AUTO_INCREMENT PRIMARY KEY,
-                                              created_at TIMESTAMP NOT NULL,
-                                              deleted_at TIMESTAMP,
-                                              is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                                              updated_at TIMESTAMP,
+                                              created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
+                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
                                               state VARCHAR(255) NOT NULL,
                                               mentee_user_id INT,
                                               mentor_post_id INT,
@@ -97,10 +97,10 @@ CREATE TABLE not_connected_register_users (
 
 CREATE TABLE user_interests (
                                 id INT AUTO_INCREMENT PRIMARY KEY,
-                                created_at TIMESTAMP NOT NULL,
-                                deleted_at TIMESTAMP,
-                                is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                                updated_at TIMESTAMP,
+                                created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
+                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
                                 interest_id INT,
                                 user_id INT,
                                 FOREIGN KEY (interest_id) REFERENCES interests(id),
@@ -109,10 +109,10 @@ CREATE TABLE user_interests (
 
 CREATE TABLE video_interests (
                                  id INT AUTO_INCREMENT PRIMARY KEY,
-                                 created_at TIMESTAMP NOT NULL,
-                                 deleted_at TIMESTAMP,
-                                 is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                                 updated_at TIMESTAMP,
+                                 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
+                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
                                  interest_id INT,
                                  video_id INT,
                                  FOREIGN KEY (interest_id) REFERENCES interests(id),
@@ -121,10 +121,10 @@ CREATE TABLE video_interests (
 
 CREATE TABLE subtitles (
                            id INT AUTO_INCREMENT PRIMARY KEY,
-                           created_at TIMESTAMP NOT NULL,
-                           deleted_at TIMESTAMP,
-                           is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                           updated_at TIMESTAMP,
+                           created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
+                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
                            eng_end_time VARCHAR(255),
                            eng_start_time VARCHAR(255),
                            eng_subtitle_content VARCHAR(255),
@@ -144,10 +144,10 @@ CREATE TABLE refresh_tokens (
 
 CREATE TABLE video_histories (
     id INT NOT NULL AUTO_INCREMENT,
-    created_at TIMESTAMP NOT NULL,
-    deleted_at TIMESTAMP,
-    is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-    updated_at TIMESTAMP,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                        deleted_at TIMESTAMP NULL DEFAULT NULL,
+                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
+                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
     user_id INT,
     video_id INT,
     PRIMARY KEY (id)
