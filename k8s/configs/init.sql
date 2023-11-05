@@ -17,6 +17,7 @@ DROP TABLE IF EXISTS videos;
 DROP TABLE IF EXISTS subtitles;
 DROP TABLE IF EXISTS video_interests;
 DROP TABLE IF EXISTS refresh_tokens;
+DROP TABLE IF EXISTS video_histories;
 SET foreign_key_checks = 1;    # 외래키 체크 설정
 
 CREATE TABLE users (
