@@ -48,15 +48,19 @@ CREATE TABLE interests (
 );
 
 CREATE TABLE videos (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                        deleted_at TIMESTAMP NULL DEFAULT NULL,
-                        is_deleted BOOLEAN DEFAULT FALSE NOT NULL,
-                        updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-                        video_end_time VARCHAR(255),
-                        video_info VARCHAR(255),
-                        video_start_time VARCHAR(255),
-                        video_url VARCHAR(255)
+    id INT AUTO_INCREMENT,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL DEFAULT NULL,
+    is_deleted BOOLEAN NOT NULL DEFAULT FALSE,
+    updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+    video_end_time VARCHAR(255),
+    video_start_time VARCHAR(255),
+    video_thumbnail_url VARCHAR(255),
+    video_title_eng VARCHAR(255),
+    video_title_korean VARCHAR(255),
+    video_url VARCHAR(255),
+    views BIGINT NOT NULL DEFAULT 0,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE mentor_posts (
