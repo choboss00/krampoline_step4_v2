@@ -34,7 +34,7 @@ CREATE TABLE users (
                        last_name VARCHAR(255) NOT NULL,
                        PASSWORD VARCHAR(256) NOT NULL,
                        phone VARCHAR(255) NOT NULL,
-                       profile_image VARCHAR(255),
+                       profile_image VARCHAR(255) DEFAULT NULL,
                        role VARCHAR(255) NOT NULL
 );
 
